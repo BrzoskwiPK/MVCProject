@@ -1,3 +1,8 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
+
 html {
   font-size: 14px;
 }
@@ -15,4 +20,8 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.vh-90 {
+    height: 90vh;
 }

@@ -4,16 +4,20 @@ using System.Diagnostics;
 
 namespace MVCProject.Controllers
 {
-    public class HomeController : Controller
+    public class AuthenticationController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public AuthenticationController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+        public IActionResult SignUp()
+        {
+            return View();
+        }
 
-        public IActionResult Index()
+        public IActionResult SignIn()
         {
             return View();
         }

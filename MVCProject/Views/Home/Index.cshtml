@@ -1,8 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "LMS - HomePage";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <h3 class="display-4 mt-3">Welcome to our Library Management System!</h3>
+    <div class="d-flex align-items-center justify-content-center flex-column">
+        <p>In order to get access to the full content of this page, please authenticate.</p>
+        <div class="d-flex align-items-center justify-content-center flex-row">
+            <button type="button" class="btn btn-primary m-2" asp-controller="Authentication" asp-action="SignIn">Sign In</button>
+            <button type="button" class="btn btn-primary m-2" asp-controller="Authentication" asp-action="SignUp">Sign Up</button>
+        </div>
+    </div>
 </div>
