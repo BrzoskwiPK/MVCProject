@@ -19,8 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Views\Author\" />
-    <Folder Include="Views\Book\" />
   </ItemGroup>
 
 </Project>

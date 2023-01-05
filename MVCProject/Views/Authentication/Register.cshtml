@@ -15,7 +15,7 @@
                 <span><b>Sorry!</b> - @TempData["Error"]</span>
             </div>
         }
-        <form method="POST" asp-action="Register" asp-controller="Authentication" class="w-60">
+        <form autocomplete="off" method="POST" asp-action="Register" asp-controller="Authentication" class="w-60">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-2 form-floating">
                 <input class="form-control" type="text" asp-for="@Model.FirstName" placeholder="Enter your first name" />
@@ -33,7 +33,7 @@
                 <span asp-validation-for="@Model.EmailAddress" class="text-danger" />
             </div>
             <div class="mb-2 form-floating">
-                <input class="form-control" type="date" min="1960-01-01" asp-for="@Model.DateOfBirth" placeholder="Date of birth" />
+                <input class="form-control" type="date" asp-for="@Model.DateOfBirth" placeholder="Date of birth" />
                 <label asp-for="@Model.DateOfBirth" class="form-label"></label>
                 <span asp-validation-for="@Model.DateOfBirth" class="text-danger" />
             </div>

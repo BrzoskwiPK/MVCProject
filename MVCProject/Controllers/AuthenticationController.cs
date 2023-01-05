@@ -26,7 +26,11 @@ namespace MVCProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (!ModelState.IsValid) return View(loginViewModel);
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Those fields are required! (minimum 5 characters each)";
+                return View(loginViewModel);
+            }
 
             var user = await _userManager.FindByEmailAsync(loginViewModel.EmailAddress);
 
@@ -63,7 +67,11 @@ namespace MVCProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
         {
-            if (!ModelState.IsValid) return View(registerViewModel);
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Those fields are required!";
+                return View(registerViewModel);
+            }
 
             var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
 
@@ -91,10 +99,21 @@ namespace MVCProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult Logout()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Logout()
+        public async Task<IActionResult> OnPostLogout()
         {
             await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
+        [HttpPost]
+        public IActionResult OnPostDontLogout()
+        {
             return RedirectToAction("Index", "Home");
         }
     }

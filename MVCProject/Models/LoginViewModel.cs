@@ -7,6 +7,7 @@ namespace MVCProject.Models
         [Required(ErrorMessage = "Email address is required!")]
         [MinLength(5)]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email address")]
         public string? EmailAddress { get; set; }
         [Required(ErrorMessage = "Password is required!")]
         [DataType(DataType.Password)]

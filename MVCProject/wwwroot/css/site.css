@@ -15,15 +15,40 @@ html {
 
 html {
   position: relative;
-  min-height: 100%;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 91.88px;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+}
+
+.pageContent {
+    width: 100% !important;
+    height: calc(100vh - 60px - 91.88px) !important;
 }
 
 body {
   margin-bottom: 60px;
 }
 
+.vh-5 {
+    height: 5vh;
+}
+
 .vh-10 {
     height: 10vh;
+}
+
+.vh-15 {
+    height: 15vh;
 }
 
 .vh-20 {
@@ -52,6 +77,10 @@ body {
 
 .vh-80 {
     height: 80vh;
+}
+
+.vh-85 {
+    height: 85vh;
 }
 
 .vh-90 {
@@ -168,7 +197,8 @@ body {
 
 .authenticationForm {
     width: 80%;
-    height: 85%;
+    height: 90%;
+    margin-bottom: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,4 +224,23 @@ body {
     justify-content: center;
 }
 
+.dashboardAvatar {
+    background: #ffe6a7;
+    border: 2px solid black;
+}
 
+.dashboardLeftPanel {
+    background: #ffe6a7;
+}
+
+.dashboardLeftPanel > button {
+    margin: 1px;
+}
+
+.userInfo {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
