@@ -52,49 +52,53 @@ Library Management System is a final project created for the "Programowanie w AS
 
 In order to run this application, we need to have the project downloaded.
 
-1. Clone this repository via GIT or just download a zip with the content.
-2. Open the project in Visual Studio.
-3. On the top of the application, click the green arrow or just simply click **Ctrl + F5**.
+- Clone this repository via GIT or just download a zip with the content.
+- Open the project in Visual Studio.
+- On the top of the application, click the green arrow or just simply click **Ctrl + F5**.
 
 3. #### How to run tests
 
-After loading the project into the Visual Studio, please go to the **Test** tab and choose **Run all tests** or just simply click **Ctrl + R, Ctrl + A**.
+After loading the project into the Visual Studio, please go to the **Test** tab and choose **Run all tests** or just simply click **Ctrl + R, Ctrl + A**.<br>
 Test suites should be loaded and after a few seconds result will be displayed.
 
 4. #### How to seed the data into the database
 
-In order to seed the entities data into the database, you have to create a migration.
+In order to seed the entities data into the database, you have to create a migration.<br>
 Move into the project directory and use below commands:
 
 `
-dotnet tool install --global dotnet-ef
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet ef migrations add CompleteMigration
-dotnet ef database update
+dotnet tool install --global dotnet-ef<br>
+dotnet add package Microsoft.EntityFrameworkCore.Design<br>
+dotnet ef migrations add CompleteMigration<br>
+dotnet ef database update<br>
 `
 
 It should create a migration, which has to be applied to the database with usage of the last command.
 
-Now it's the time to seed the user + roles related data into the database. YOU NEED TO DO THIS, IF YOU WANT TO TRY ACCOUNT WITH ELEVATED PRIVILEGES!
+Now it's the time to seed the user + roles related data into the database.<br>YOU NEED TO DO THIS, IF YOU WANT TO TRY ACCOUNT WITH ELEVATED PRIVILEGES!
 
 Please, use this command:
 
 > dotnet run seed
 
-Script should load two test users to the database. One of them has elevated privileges (librarian) and one is just a standard user (student).
+Script should load two test users to the database.<br>One of them has elevated privileges (librarian) and one is just a standard user (student).<br>
 Here you can find credentials:
 
-`ADMIN: <br>
-Login: librarian@gmail.com <br>
-Password: librarian123<br>` 
-
-`STUDENT: <br>
-Login: student@gmail.com <br>
-Password: student123 <br>
 `
+- ADMIN:
+- Login: librarian@gmail.com
+- Password: librarian123
+` 
+
+`
+- STUDENT:
+- Login: student@gmail.com
+- Password: student123
+`
+
 5. #### How to access Swagger
 
-If we have our application loaded, we can access the Swagger, where we can try our REST API.
+If we have our application loaded, we can access the Swagger, where we can try our REST API.<br>
 In order to get there, we have to visit this link: **https://localhost:7085/swagger/index.html**.
 
 Here, how it looks like:
@@ -103,7 +107,7 @@ Here, how it looks like:
 
 6. #### Connection string
 
-Application uses Microsoft SQL Server. We can adjust the connection string that is located in the *appsetings.json* file.
+Application uses Microsoft SQL Server.<br> We can adjust the connection string that is located in the *appsetings.json* file.<br>
 By default, it looks like this:
 
 `
