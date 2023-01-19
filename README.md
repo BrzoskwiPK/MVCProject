@@ -11,7 +11,7 @@ Library Management System is a final project created for the "Programowanie w AS
 1. [Getting Started](#getting-started)
 
 - [Prerequisites](#prerequisites)
-- [How to ...?](#how-to)
+- [How to ...](#how-to)
   - [Dependencies](#dependencies)
   - [How to run application](#how-to-run-application)
   - [How to run tests](#how-to-run-tests)
@@ -92,11 +92,11 @@ dotnet run seed
 Script should load two test users to the database.<br>One of them has elevated privileges (librarian) and one is just a standard user (student).<br>
 Here you can find credentials:
 
-- ADMIN:
+**ADMIN**
 - Login: librarian@gmail.com
 - Password: librarian123
 
-- STUDENT:
+**STUDENT**
 - Login: student@gmail.com
 - Password: student123
 
