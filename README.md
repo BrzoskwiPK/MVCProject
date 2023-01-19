@@ -66,12 +66,18 @@ Test suites should be loaded and after a few seconds result will be displayed.
 In order to seed the entities data into the database, you have to create a migration.<br>
 Move into the project directory and use below commands:
 
-`
-dotnet tool install --global dotnet-ef<br>
-dotnet add package Microsoft.EntityFrameworkCore.Design<br>
-dotnet ef migrations add CompleteMigration<br>
-dotnet ef database update<br>
-`
+```bash
+dotnet tool install --global dotnet-ef
+```
+```bash
+dotnet add package Microsoft.EntityFrameworkCore.Design
+```
+```bash
+dotnet ef migrations add CompleteMigration
+```
+```bash
+dotnet ef database update
+```
 
 It should create a migration, which has to be applied to the database with usage of the last command.
 
@@ -79,22 +85,20 @@ Now it's the time to seed the user + roles related data into the database.<br>YO
 
 Please, use this command:
 
-> dotnet run seed
+```bash
+dotnet run seed
+```
 
 Script should load two test users to the database.<br>One of them has elevated privileges (librarian) and one is just a standard user (student).<br>
 Here you can find credentials:
 
-`
 - ADMIN:
 - Login: librarian@gmail.com
 - Password: librarian123
-` 
 
-`
 - STUDENT:
 - Login: student@gmail.com
 - Password: student123
-`
 
 5. #### How to access Swagger
 
@@ -110,11 +114,11 @@ Here, how it looks like:
 Application uses Microsoft SQL Server.<br> We can adjust the connection string that is located in the *appsetings.json* file.<br>
 By default, it looks like this:
 
-`
+```bash
 "ConnectionStrings": {
     "LibraryDatabase": "Server=(localdb)\\MSSQLLocalDB;Database=LibraryDatabase;Trusted_Connection=True;MultipleActiveResultSets=True"
-},
-`
+}
+```
 
 ## FAQ
 
@@ -178,6 +182,7 @@ Here we can login into the system.
 ![loginPage](https://user-images.githubusercontent.com/101000424/212485731-0c0ad519-86b7-40fd-b048-d8aa560ad9bd.png)
 
 3. Logout
+
 We will be asked if we want to logout from the system and if so, our session will be terminated.
 
 ![logoutPage](https://user-images.githubusercontent.com/101000424/212485794-76df716f-123f-4444-b142-509c540ecc40.png)
@@ -201,7 +206,7 @@ User with elevated privileges (librarian) has extra three buttons to edit, delet
 
 Librarian has a possibility to add a new book to the database.
 
-![addBook](https://user-images.githubusercontent.com/101000424/212486416-cd7f7107-ac9d-499a-82c5-a85f652f4b1a.png)
+![add](https://user-images.githubusercontent.com/101000424/213556173-47676946-a07a-46b5-a251-d3da86d79d02.png)
 
 #### Editing a book
 
