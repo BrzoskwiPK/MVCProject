@@ -1,4 +1,4 @@
-﻿namespace MVCProject.Models
+﻿namespace MVCProject.Enums
 {
     public class Gender
     {

@@ -1,27 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MVCProject.Models;
+using MVCProject.ViewModels;
 using System.Diagnostics;
 
 namespace MVCProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "UserProfile");
+            }
             return View();
         }
 
-        public IActionResult Testing()
-        {
-            return View();
-        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

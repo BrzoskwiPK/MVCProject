@@ -6,6 +6,11 @@ namespace MVCProject.Models
     [Table("Authors")]
     public class Author
     {
+        public Author()
+        {
+            Books = new HashSet<Book>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

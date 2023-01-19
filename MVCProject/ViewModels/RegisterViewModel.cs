@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MVCProject.Models
+namespace MVCProject.ViewModels
 {
     public class RegisterViewModel
     {

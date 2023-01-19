@@ -1,0 +1,56 @@
+﻿@using MVCProject.ViewModels
+@model BookViewModel
+
+@{
+    ViewData["Title"] = "Add a book";
+}
+
+<div class="d-flex flex-column align-items-center justify-content-center w-100 h-100 mb-auto">
+    <h2>Add a book</h2>
+    @if (TempData["Error"] != null)
+    {
+        <div class="col-md-12 alert alert-danger">
+            <span><b>Sorry!</b> - @TempData["Error"]</span>
+        </div>
+    }
+    <form method="post" asp-action="Add" class="w-60">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group form-floating mb-2">
+            <input asp-for="Title" class="form-control" />
+            <label asp-for="Title" class="control-label"></label>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group form-floating mb-2">
+            <input asp-for="Language" class="form-control" />
+            <label asp-for="Language" class="control-label"></label>
+            <span asp-validation-for="Language" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="CategoryId" class="control-label"></label>
+            <input asp-for="CategoryId" class="form-control" />
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="ReleaseDate" class="control-label"></label>
+            <input asp-for="ReleaseDate" class="form-control" value="01.01.2023"/>
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AuthorsId" class="control-label"></label>
+            <select asp-for="AuthorsId" class="form-control" asp-items=@Model.Authors></select>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="@Model.BookDetails.NumberOfPages" class="control-label"></label>
+            <input asp-for="@Model.BookDetails.NumberOfPages" class="form-control" type="number" min="0"/>
+            <span asp-validation-for="@Model.BookDetails.NumberOfPages" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="@Model.BookDetails.Rating" class="control-label"></label>
+            <input asp-for="@Model.BookDetails.Rating" class="form-control" min="0" max="5.0" type="number" step="0.1"/>
+            <span asp-validation-for="@Model.BookDetails.Rating" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+﻿@using MVCProject.Models
+@model Book
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<form>
+    <div class="d-flex flex-column align-items-center justify-content-center w-100 h-100 mb-auto">
+        <h2>Book details</h2>
+        <div class="h-10 fs-4 m-3"><span class="bold">Title: </span>@Model.Title</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Language: </span>@Model.Language</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Category: </span>@Model.Category.Name</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Release Date: </span>@Model.ReleaseDate.ToShortDateString()</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Create Date: </span>@Model.Created.ToShortDateString()</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Number Of Pages: </span>@Model.BookDetails.NumberOfPages</div>
+        <div class="h-10 fs-4 m-3"><span class="bold">Rating: </span>@Model.BookDetails.Rating</div>
+
+        <div class="h-10 fs-4 m-3"><span class="bold">Authors: </span>
+                @foreach (Author author in @Model.Authors)
+                {
+                    <span>@author.FirstName @author.LastName,</span>
+                }
+        </div>
+        <div class="d-flex align-items-center justify-content-center">
+            <a class="btn btn-primary mt-4 me-4" asp-action="Index" asp-controller="Book">Back</a>
+        </div>
+    </div>
+</form>

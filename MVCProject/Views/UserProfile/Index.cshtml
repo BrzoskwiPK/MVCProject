@@ -1,4 +1,5 @@
-﻿@model UserViewModel
+﻿@using MVCProject.ViewModels
+@model UserViewModel
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -8,32 +9,30 @@
     <div class="w-30 h-100 d-flex flex-column align-items-center">
         <div class="w-100 h-50 dashboardAvatar">
             @if (User.IsInRole("admin")) {
-                <img src="librarian.png" alt="Student" class="rounded w-50 font-weight-bold mt-2" />
-                <p class="m-1 fs-2">Admin</p>
-
+                <img src="librarian.png" alt="Student" class="rounded w-50 font-weight-bold mt-4" />
+                <p class="m-1">Admin</p>
             } else {
-                <img src="student.png" alt="Student" class="rounded w-50 font-weight-bold mt-2" />
-                <p class="m-1 fs-3 font-weight-bold">Student</p>
+                <img src="student.png" alt="Student" class="rounded w-50 font-weight-bold mt-4" />
+                <p class="m-1">Student</p>
             }
 
             <p class="fw-bolder userInfo m-2 fs-4">@Model.FirstName @Model.LastName</p>
         </div>
         <div class="w-100 h-50 mt-auto dashboardLeftPanel d-flex align-items-center justify-content-center flex-column">
-            <button class="w-50 btn btn-primary fs-4 font-weight-bold">USER INFO</button>
-            <button class="w-50 btn btn-primary fs-4 font-weight-bold">LIST OF BOOKS</button>
-            <button class="w-50 btn btn-primary fs-4 font-weight-bold">ADD A BOOK</button>
-            <button class="w-50 btn btn-primary fs-4 font-weight-bold">BLA BLA BLA</button>
-            <button class="w-50 btn btn-primary fs-4 font-weight-bold">BLA BLA BLA</button>
+            <a class="w-50 btn btn-primary fs-4 font-weight-bold" asp-action="Index" asp-controller="UserProfile">USER INFO</a>
+            <a class="w-50 btn btn-primary fs-4 font-weight-bold" asp-action="Index" asp-controller="Book">LIST OF BOOKS</a>
+            @if (User.IsInRole("admin"))
+            {
+                <a class="w-50 btn btn-primary fs-4 font-weight-bold" asp-action="Add" asp-controller="Book">ADD A BOOK</a>
+            }
         </div>
     </div>
-    <div class="w-70 h-100 bg-light d-flex align-items-center justify-content-center ">
-        <form method="post">
-            <div><span class="bold">First Name: </span>@Model.FirstName</div>
-            <div><span class="bold">Last Name: </span>@Model.LastName</div>
-            <div><span class="bold">Email Address: </span>@Model.EmailAddress</div>
-            <div><span class="bold">Date of birth: </span>@Model.DateOfBirth.Value.ToString().Substring(0, 10)</div>
-            <div><span class="bold">Gender: </span>@Model.Gender</div>
-            <button type="submit" class="btn btn-info mt-4" asp-action="EditUser">Edit personal info</button>
-        </form>
+    <div class="w-70 h-100 bg-light d-flex flex-column align-items-center justify-content-center">
+        <h2 class="mb-4">User information</h2>
+            <div class="h-10 fs-4 m-1"><span class="bold">First Name: </span>@Model.FirstName</div>
+            <div class="h-10 fs-4 m-1"><span class="bold">Last Name: </span>@Model.LastName</div>
+            <div class="h-10 fs-4 m-1"><span class="bold">Email Address: </span>@Model.EmailAddress</div>
+            <div class="h-10 fs-4 m-1"><span class="bold">Date of birth: </span>@Model.DateOfBirth.ToString().Substring(0, 10)</div>
+            <div class="h-10 fs-4 m-1"><span class="bold">Gender: </span>@Model.Gender</div>
     </div>
 </div>

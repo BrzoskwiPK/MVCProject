@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MVCProject.Enums;
 using MVCProject.Models;
+using MVCProject.ViewModels;
 
 namespace MVCProject.Controllers
 {
@@ -8,19 +10,17 @@ namespace MVCProject.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ApplicationDbContext _context;
 
-        public AuthenticationController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext context)
+        public AuthenticationController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _context = context;
         }
 
         public IActionResult Login()
         {
-            var response = new LoginViewModel();
-            return View(response);
+            LoginViewModel loginViewModel = new();
+            return View(loginViewModel);
         }
 
         [HttpPost]
@@ -60,8 +60,8 @@ namespace MVCProject.Controllers
 
         public IActionResult Register()
         {
-            var response = new RegisterViewModel();
-            return View(response);
+            RegisterViewModel registerViewModel = new();
+            return View(registerViewModel);
         }
 
         [HttpPost]

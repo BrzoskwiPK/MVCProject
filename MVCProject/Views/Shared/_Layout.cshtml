@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<ApplicationUser> SignInManager
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +11,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MVCProject.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrap-lux.css" />
+    <link rel="icon" href="~/favicon.png" />
 </head>
 <body>
     <header>
@@ -50,10 +50,10 @@
     <div class="pageContent text-center d-flex flex-column justify-content-center align-items-center">
         <main role="main" class="w-100 h-100 text-center d-flex flex-column justify-content-center align-items-center">
             @RenderBody()
-        </main>
+        </main> 
     </div>
     <footer class="border-top footer bg-primary text-muted">
-        <div class="container text-center">
+        <div class="container text-center h-100 w-100 d-flex align-items-center justify-content-center">
             LMS | Copyright &copy; 2022 - Gabriel Brzoskwinia
         </div>
     </footer>
