@@ -4,7 +4,7 @@ Library Management System is a final project created for the "Programowanie w AS
 
 ### Technology Stack
 
-- ASP.NET Core 6.0
+- **ASP.NET Core 6.0**
 
 # Navigation
 
@@ -12,10 +12,12 @@ Library Management System is a final project created for the "Programowanie w AS
 
 - [Prerequisites](#prerequisites)
 - [How to ...?](#how-to)
-  - [How to install dependencies](#how-to-install-dependencies)
+  - [Dependencies](#dependencies)
   - [How to run application](#how-to-run-application)
   - [How to run tests](#how-to-run-tests)
-    
+  - [How to access swagger](#how-to-access-swagger)
+  - [Connection string](#connection-string)
+  
 2. [FAQ](#faq)
 
 1. [DEFINITIONS](#definitions)
@@ -41,21 +43,74 @@ Library Management System is a final project created for the "Programowanie w AS
 
 ### How to
 
-1. #### How to install dependencies
+1. #### Dependencies
 
----- TO BE CONTINUED ----
+- Microsoft SQL Server 
+- Visual Studio
 
 2. #### How to run application
 
----- TO BE CONTINUED ----
+In order to run this application, we need to have the project downloaded.
+
+1. Clone this repository via GIT or just download a zip with the content.
+2. Open the project in Visual Studio.
+3. On the top of the application, click the green arrow or just simply click **Ctrl + F5**.
 
 3. #### How to run tests
 
----- TO BE CONTINUED ----
+After loading the project into the Visual Studio, please go to the **Test** tab and choose **Run all tests** or just simply click **Ctrl + R, Ctrl + A**.
+Test suites should be loaded and after a few seconds result will be displayed.
 
 4. #### How to seed the data into the database
 
----- TO BE CONTINUED ----
+In order to seed the entities data into the database, you have to create a migration.
+Move into the project directory and use below commands:
+
+`
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet ef migrations add CompleteMigration
+dotnet ef database update
+`
+
+It should create a migration, which has to be applied to the database with usage of the last command.
+
+Now it's the time to seed the user + roles related data into the database. YOU NEED TO DO THIS, IF YOU WANT TO TRY ACCOUNT WITH ELEVATED PRIVILEGES!
+
+Please, use this command:
+
+> dotnet run seed
+
+Script should load two test users to the database. One of them has elevated privileges (librarian) and one is just a standard user (student).
+Here you can find credentials:
+
+`ADMIN: <br>
+Login: librarian@gmail.com <br>
+Password: librarian123<br>` 
+
+`STUDENT: <br>
+Login: student@gmail.com <br>
+Password: student123 <br>
+`
+5. #### How to access Swagger
+
+If we have our application loaded, we can access the Swagger, where we can try our REST API.
+In order to get there, we have to visit this link: **https://localhost:7085/swagger/index.html**.
+
+Here, how it looks like:
+
+![swagger](https://user-images.githubusercontent.com/101000424/213552894-33307395-4899-4fe5-89ed-5984b1d8ec29.png)
+
+6. #### Connection string
+
+Application uses Microsoft SQL Server. We can adjust the connection string that is located in the *appsetings.json* file.
+By default, it looks like this:
+
+`
+"ConnectionStrings": {
+    "LibraryDatabase": "Server=(localdb)\\MSSQLLocalDB;Database=LibraryDatabase;Trusted_Connection=True;MultipleActiveResultSets=True"
+},
+`
 
 ## FAQ
 
@@ -91,7 +146,7 @@ There are two types of users with the access to the dashboard on this platform:
 
 1. Unauthorized guest is only allowed to view the main page, on which he can either login or register.
 2. Authorized user (student) has privileges to view dashboard, where he can display personal information, view collection of books.
-3. Authorized admin (librarian) is able to perform basic CRUD operations with books on its dashboard.
+3. Authorized admin (librarian) is able to perform basic CRUD operations with books on the dashboard.
 
 #### Contributor
 
@@ -102,7 +157,7 @@ There are two types of users with the access to the dashboard on this platform:
 #### Authentication
 
 Once user starts the application, he'll be able to see a main page, where he can authenticate to see the content.
-User goes through a form with a validation, and if he passed correct credentials -> he will get access to the service.
+User goes through a form with a validation, and if he provides correct credentials -> he will get access to the service.
 
 ![mainPage](https://user-images.githubusercontent.com/101000424/212485901-100e0fd4-23b7-4792-ad18-2ad6aaeb1105.png)
 
@@ -134,7 +189,7 @@ The image differs between a student and librarian role.
 #### Displaying a list of books
 
 A paginated grid with a list of books that are stored in database can be reached from the dashboard. 
-User with elevated privileges (librarian) have extra three buttons that allow him to edit, delete and display extra info about each book.
+User with elevated privileges (librarian) has extra three buttons to edit, delete and display extra info about each book.
 
 ![booksAdmin](https://user-images.githubusercontent.com/101000424/212486196-6cd306b4-abb0-4924-b81a-ca890d181207.png)
 
